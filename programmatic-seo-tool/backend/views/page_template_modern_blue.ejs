@@ -1,0 +1,60 @@
+<% /* Modern Blue Theme Template (Template 2) */ %>
+<section class="tpl tpl-blue">
+  <header class="hero">
+    <h1><%- h1 %></h1>
+    <% if (metaDescription) { %><p class="hero-tagline"><%- metaDescription %></p><% } %>
+    <div class="hero-cta">
+      <a href="/" class="btn btn-secondary">Home</a>
+      <a href="/admin" class="btn btn-primary">Generate More</a>
+    </div>
+  </header>
+  <div class="content">
+    <div class="features-grid">
+      <% (sections||[]).slice(0,3).forEach(function(section,i){ %>
+        <div class="feature-card">
+          <div class="feature-icon"><%= ['🚀','⚙️','📈','💡'][i%4] %></div>
+          <p><%- section %></p>
+        </div>
+      <% }); %>
+    </div>
+    <% (sections||[]).slice(3).forEach(function(section){ %>
+      <div class="text-block"><p><%- section %></p></div>
+    <% }); %>
+
+    <% if (faq && faq.length) { %>
+      <div class="faq-zone">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-items">
+          <% faq.forEach(function(f){ %>
+            <div class="faq-item">
+              <div class="faq-question"><%- f.q %></div>
+              <div class="faq-answer"><%- f.a %></div>
+            </div>
+          <% }); %>
+        </div>
+      </div>
+    <% } %>
+
+    <% if (relatedPages && relatedPages.length) { %>
+      <div class="related blue-related">
+        <h2>Related Pages</h2>
+        <div class="related-links">
+          <% relatedPages.forEach(function(r){ %>
+            <a href="/<%- r.slug %>"><%- r.title %></a>
+          <% }); %>
+        </div>
+      </div>
+    <% } %>
+
+    <div class="cta-band-blue">
+      <div class="cta-text">
+        <h2>Scale Your Content</h2>
+        <p>Automate SEO page generation and accelerate organic acquisition.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="/admin" class="btn btn-glow">Generate Pages</a>
+        <a href="/" class="btn btn-secondary">Back Home</a>
+      </div>
+    </div>
+  </div>
+</section>

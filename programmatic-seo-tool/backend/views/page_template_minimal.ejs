@@ -1,0 +1,28 @@
+<% /* Minimal Clean Template (Template 1) */ %>
+<div class="tpl tpl-minimal">
+  <h1 class="tpl-heading"><%- h1 %></h1>
+  <% (sections||[]).forEach(function(section){ %>
+    <div class="tpl-section"><p><%- section %></p></div>
+  <% }); %>
+  <% if (faq && faq.length) { %>
+    <div class="tpl-faq">
+      <h2>FAQ</h2>
+      <% faq.forEach(function(f){ %>
+        <div class="faq-item">
+          <div class="faq-question"><%- f.q %></div>
+          <div class="faq-answer"><%- f.a %></div>
+        </div>
+      <% }); %>
+    </div>
+  <% } %>
+  <% if (relatedPages && relatedPages.length) { %>
+    <div class="tpl-related">
+      <h3>Related Pages</h3>
+      <ul>
+        <% relatedPages.forEach(function(r){ %>
+          <li><a href="/<%- r.slug %>"><%- r.title %></a></li>
+        <% }); %>
+      </ul>
+    </div>
+  <% } %>
+</div>

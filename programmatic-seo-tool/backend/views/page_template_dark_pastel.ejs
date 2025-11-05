@@ -1,0 +1,54 @@
+<% /* Dark Pastel Theme Template (Template 3) */ %>
+<section class="tpl tpl-dark">
+  <header class="dark-hero">
+    <h1><%- h1 %></h1>
+    <% if (metaDescription) { %><p class="dark-tagline"><%- metaDescription %></p><% } %>
+    <div class="dark-hero-cta">
+      <a href="/" class="btn-alt">Home</a>
+      <a href="/admin" class="btn-primary-alt">Generate More</a>
+    </div>
+  </header>
+  <div class="dark-layout">
+    <aside class="toc-panel">
+      <h3>On this page</h3>
+      <ul>
+        <% (sections||[]).slice(0,4).forEach(function(s,idx){ %><li>Section <%= idx+1 %></li><% }); %>
+        <% if (faq) { faq.slice(0,4).forEach(function(f){ %><li><%- f.q %></li><% }); } %>
+      </ul>
+    </aside>
+    <article class="article-flow">
+      <% (sections||[]).forEach(function(section){ %>
+        <div class="article-section"><p><%- section %></p></div>
+      <% }); %>
+      <% if (faq && faq.length) { %>
+        <div class="faq-stack">
+          <h2>Questions & Answers</h2>
+          <% faq.forEach(function(f){ %>
+            <div class="faq-item dark-faq">
+              <div class="faq-question"><%- f.q %></div>
+              <div class="faq-answer"><%- f.a %></div>
+            </div>
+          <% }); %>
+        </div>
+      <% } %>
+      <% if (relatedPages && relatedPages.length) { %>
+        <div class="related dark-related">
+          <h2>Explore More</h2>
+          <div class="related-links">
+            <% relatedPages.forEach(function(r){ %>
+              <a href="/<%- r.slug %>"><%- r.title %></a>
+            <% }); %>
+          </div>
+        </div>
+      <% } %>
+      <div class="closing-cta">
+        <h2>Ready to launch more?</h2>
+        <p>Expand your organic footprint with data-driven programmatic content.</p>
+        <div class="cta-buttons">
+          <a href="/admin" class="btn-primary-alt">Generate Pages</a>
+          <a href="/" class="btn-alt">Home</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>

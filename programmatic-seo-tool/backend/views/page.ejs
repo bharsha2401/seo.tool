@@ -1,0 +1,47 @@
+<!-- Main heading -->
+<h1><%- h1 %></h1>
+
+<!-- Content sections -->
+<% sections.forEach(function(section, index) { %>
+<div class="section">
+    <p><%- section %></p>
+</div>
+<% }); %>
+
+<!-- FAQ Section -->
+<% if (faq && faq.length > 0) { %>
+<div class="faq-container">
+    <h2>Frequently Asked Questions</h2>
+    
+    <% faq.forEach(function(faqItem, index) { %>
+    <div class="faq-item">
+        <div class="faq-question"><%- faqItem.q %></div>
+        <div class="faq-answer"><%- faqItem.a %></div>
+    </div>
+    <% }); %>
+</div>
+<% } %>
+
+<!-- Related Pages Section -->
+<% if (typeof relatedPages !== 'undefined' && relatedPages && relatedPages.length > 0) { %>
+<div class="related-pages">
+    <h3>Related Pages</h3>
+    <div class="related-links">
+        <% relatedPages.forEach(function(page) { %>
+        <a href="/<%- page.slug %>"><%- page.title %></a>
+        <% }); %>
+    </div>
+</div>
+<% } %>
+
+<!-- Additional content sections if needed -->
+<div class="section">
+    <h2>Why Choose Our Services?</h2>
+    <p>Our comprehensive approach ensures that your business gets the visibility it deserves. We combine proven strategies with innovative techniques to deliver results that matter.</p>
+    
+    <h3>Our Process</h3>
+    <p>We start with a thorough analysis of your current situation, then develop a customized strategy that aligns with your business goals. Our team monitors progress continuously to ensure optimal performance.</p>
+    
+    <h3>Get Started Today</h3>
+    <p>Ready to take your business to the next level? Contact our team of experts to discuss how we can help you achieve your goals with our proven strategies.</p>
+</div>

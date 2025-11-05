@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: http://localhost:8080/sitemap.xml
+
+# Disallow admin area
+Disallow: /admin/
+Disallow: /api/
+
+# Allow search engines to crawl generated pages
+Allow: /*/
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1

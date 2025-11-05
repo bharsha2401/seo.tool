@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title><%- title || 'Programmatic SEO Tool' %></title>
+    <meta name="description" content="<%- metaDescription || '' %>">
+    <meta name="robots" content="index, follow">
+
+  <% const siteUrl = (process.env.SITE_URL || 'http://localhost:8080').replace(/\/$/, ''); %>
+    <link rel="canonical" href="<%= siteUrl %>/<%= typeof slug !== 'undefined' ? slug : '' %>">
+
+    <!-- Open Graph & Twitter -->
+    <meta property="og:title" content="<%- title || '' %>">
+    <meta property="og:description" content="<%- metaDescription || '' %>">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="<%= siteUrl %>/<%= typeof slug !== 'undefined' ? slug : '' %>">
+    <% if (typeof ogImage !== 'undefined' && ogImage) { %>
+      <meta property="og:image" content="<%= ogImage %>">
+      <meta name="twitter:image" content="<%= ogImage %>">
+    <% } %>
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/templates.css">
+  </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <a href="/" class="logo">Programmatic SEO Tool</a>
+        <nav>
+          <a href="/">Home</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin">Admin</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container page-content">
+        <%- body %>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>&copy; <%= new Date().getFullYear() %> Programmatic SEO Tool.</p>
+        <p><a href="/sitemap.xml">Sitemap</a> | <a href="/admin">Admin Panel</a></p>
+      </div>
+    </footer>
+
+    <% if (typeof faqSchema !== 'undefined' && faqSchema && Object.keys(faqSchema).length > 0) { %>
+      <script type="application/ld+json"><%- JSON.stringify(faqSchema) %></script>
+    <% } %>
+  </body>
+</html>
