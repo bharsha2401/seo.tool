@@ -1,0 +1,13 @@
+[build]
+  publish = "deployed"
+  command = ""
+  base = ""
+
+[build.environment]
+  NODE_VERSION = "18"
+  SITE_URL = "https://programmatic-seo-tool.netlify.app"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
